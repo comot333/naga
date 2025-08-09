@@ -1,0 +1,191 @@
+/* Reset dan styling dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Container untuk chat output */
+#out {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 120px;
+}
+
+/* Styling untuk pesan */
+#out p {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 70%;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Pesan dari user */
+#out p:nth-child(odd) {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  margin-left: auto;
+  text-align: right;
+  border-bottom-right-radius: 5px;
+}
+
+/* Pesan dari AI */
+#out p:nth-child(even) {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container input yang lebih bagus */
+.input-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 100;
+}
+
+/* Styling input text yang lebih modern */
+input[type="text"] {
+  position: static;
+  flex: 1;
+  height: 50px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-size: 16px;
+  background: rgba(248, 249, 250, 0.8);
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+input[type="text"]:focus {
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: scale(1.02);
+}
+
+input[type="text"]::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Styling button yang lebih menarik */
+button {
+  position: static;
+  width: 60px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a67d8, #667eea);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Icon untuk button */
+button::before {
+  content: "➤";
+  font-size: 20px;
+}
+
+/* Animasi fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .input-container {
+    width: 95%;
+    padding: 12px;
+  }
+  
+  input[type="text"] {
+    font-size: 14px;
+    height: 45px;
+  }
+  
+  button {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+  
+  #out {
+    padding: 15px;
+  }
+  
+  #out p {
+    max-width: 85%;
+    font-size: 14px;
+  }
+}
+
+/* Loading animation untuk "sedang mengetik" */
+.typing-indicator {
+  display: inline-block;
+}
+
+.typing-indicator::after {
+  content: "●●●";
+  animation: typing 1.5s infinite;
+  color: #667eea;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: initial;
+  }
+  30% {
+    transform: scale(0.8);
+  }
+}

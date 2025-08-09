@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot AI Modern</title>
+    <link rel="stylesheet" href="gaya.css" />
+    <script src="chatbot.js" defer></script>
+  </head>
+  <body>
+    <!-- Header untuk chatbot -->
+    <div class="chat-header">
+      <h1>🤖 Rafly Ai</h1>
+      <p>Tanyakan apa saja yang ingin Anda ketahui</p>
+    </div>
+
+    <!-- Area untuk menampilkan pesan chat -->
+    <div id="out"></div>
+
+    <!-- Container input yang lebih bagus -->
+    <div class="input-container">
+      <input 
+        id="pesan" 
+        type="text" 
+        placeholder="Ketik pesan Anda di sini..." 
+        onkeypress="handleKeyPress(event)"
+      />
+      <button onclick="pesan()" title="Kirim pesan">
+        <!-- Icon akan ditambahkan via CSS -->
+      </button>
+    </div>
+  </body>
+</html>
