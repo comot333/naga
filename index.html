@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chatbot AI Modern</title>
-    <link rel="stylesheet" href="gaya.css" />
-    <script src="chatbot.js" defer></script>
-  </head>
-  <body>
-    <!-- Header untuk chatbot -->
-    <div class="chat-header">
-      <h1>🤖 Rafly Ai</h1>
-      <p>Tanyakan apa saja yang ingin Anda ketahui</p>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot AI</title>
+  <link rel="stylesheet" href="gaya.css" />
+  <script src="chatbot.js" defer></script>
+</head>
+<body>
+  <!-- Header untuk chatbot -->
+  <div class="chat-header">
+    <h1><span class="robot-icon">🤖</span> RaflyAI</h1>
+    <p>Tanyakan apa saja yang ingin Anda ketahui</p>
+    <!-- Tombol riwayat (hijau) -->
+    <button class="history-btn" onclick="bukaRiwayat()">📜</button>
+  </div>
 
-    <!-- Area untuk menampilkan pesan chat -->
-    <div id="out"></div>
+  <!-- Area untuk menampilkan pesan chat -->
+  <div id="out"></div>
 
-    <!-- Container input yang lebih bagus -->
-    <div class="input-container">
-      <input 
-        id="pesan" 
-        type="text" 
-        placeholder="Ketik pesan Anda di sini..." 
-        onkeypress="handleKeyPress(event)"
-      />
-      <button onclick="pesan()" title="Kirim pesan">
-        <!-- Icon akan ditambahkan via CSS -->
-      </button>
+  <!-- Container input -->
+  <div class="input-container">
+    <input 
+      id="pesan" 
+      type="text" 
+      placeholder="Ketik pesan Anda di sini..." 
+      onkeypress="handleKeyPress(event)"
+    />
+    <!-- Tombol kirim (kuning, desain baru) -->
+    <button class="send-btn" onclick="pesan()" title="Kirim pesan"></button>
+  </div>
+
+  <!-- Modal riwayat -->
+  <div id="history-modal" class="modal">
+    <div class="modal-content">
+      <button class="exit-btn" onclick="tutupRiwayat()">Keluar</button>
+      <h2>Riwayat Percakapan</h2>
+      <div id="history-list"></div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
